@@ -68,7 +68,7 @@ const Reviews: React.FC = () => {
               value={formData.fullName}
               onChange={handleChange}
               required
-              className="border rounded-md w-full px-3 py-2 mt-1"
+              className="border rounded-md w-full text-black px-3 py-2 mt-1"
             />
           </div>
 
@@ -82,7 +82,7 @@ const Reviews: React.FC = () => {
               name="location"
               value={formData.location}
               onChange={handleChange}
-              className="border rounded-md w-full px-3 py-2 mt-1"
+              className="border rounded-md text-black  w-full px-3 py-2 mt-1"
             />
           </div>
 
@@ -97,7 +97,7 @@ const Reviews: React.FC = () => {
               onChange={handleChange}
               required
               rows={4}
-              className="border rounded-md w-full px-3 py-2 mt-1"
+              className="border rounded-md text-black  w-full px-3 py-2 mt-1"
             />
           </div>
 

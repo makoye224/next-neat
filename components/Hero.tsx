@@ -16,7 +16,7 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="flex-1 padding-x">
-        <h1 className="hero__title mt-20">Love Your Space!</h1>
+        <h1 className="hero__title text-white mt-20">Love Your Space!</h1>
 
         <p className="hero__subtitle">
           Book a cleaning appointment for your house, garden, swimming pool,
@@ -31,7 +31,12 @@ const Hero = () => {
       </div>
       <div className="hero__image-container">
         <div className="hero__image">
-          <Image src="/hel-bn.png" alt="hero" fill className="object-contain" />
+          <Image
+            src="/hel-bn.png"
+            alt="hero"
+            fill
+            className="object-contain shadow-black "
+          />
         </div>
 
         <div className="hero__image-overlay" />

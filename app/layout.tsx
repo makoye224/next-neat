@@ -13,10 +13,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="winter">
-      <body className="relative">
+    <html lang="en" data-theme="light">
+      <body className="relative bg-neat-color">
         <NavBar />
-        <br />
         {children}
         <Footer />
       </body>

@@ -16,11 +16,14 @@ const Button = ({
   <button
     disabled={isDisabled}
     type={btnType || "button"}
-    className={`custom-btn ${containerStyles}`}
+    className={`custom-btn hover:bg-red-700 bg-white ${containerStyles}`}
     onClick={handleClick}
-    style={{ backgroundColor: "#0000fe" }}
   >
-    <span className={`flex-1 ${textStyles}`}>{title}</span>
+    <span
+      className={`flex-1 text-black  hover:text-white font-extrabold ${textStyles}`}
+    >
+      {title}
+    </span>
     {rightIcon && (
       <div className="relative w-6 h-6">
         <Image

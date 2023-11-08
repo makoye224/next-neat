@@ -60,7 +60,7 @@ const Team: React.FC = () => {
             <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
             <p className="text-lg">{member.position}</p>
             <div className="flex items-center mt-2">
-              <p className="text-gray-600 mr-2">Email: {member.email}</p>
+              <p className="mr-2">Email: {member.email}</p>
               <button
                 onClick={() => copyEmailToClipboard(member.email)}
                 className="ml-2 p-1 bg-neat-color text-white rounded hover:bg-blue-400"

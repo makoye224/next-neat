@@ -22,7 +22,7 @@ const NavBar = () => {
       <nav className="max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-6 bg-transparent">
         <Link href="/" className="flex justify-center items-center">
           <Image
-            src="/mylogo.png"
+            src="/ntfy.png"
             alt="logo"
             width={200}
             height={18}
@@ -36,7 +36,7 @@ const NavBar = () => {
         >
           <FiPhoneCall
             style={{ fontSize: "24px" }}
-            className="text-neat-color lg:text-white hover:text-black"
+            className="lg:text-neat-color text-white hover:text-orange-600"
           />
         </button>
         <Modal isOpen={isModalOpen} onClose={closeModal} />

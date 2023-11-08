@@ -29,7 +29,7 @@ const BookAppointment = () => {
   };
 
   return (
-    <div className="w-full max-w-md p-4 mx-auto bg-white shadow-lg rounded-lg">
+    <div className="w-full max-w-md p-4 mx-auto bg-white text-black shadow-lg rounded-lg">
       <h2 className="text-2xl font-bold mb-4">Book an Appointment</h2>
       <form>
         <div className="mb-4">
@@ -91,7 +91,7 @@ const BookAppointment = () => {
           <input
             type="time"
             id="time"
-            className="w-full px-4 py-2 border rounded-lg"
+            className="w-full px-4 py-2 border  rounded-lg"
           />
         </div>
         <div className="mb-4">

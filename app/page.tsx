@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import { fetchCars } from "@utils";
 import { HomeProps } from "@types";
 import { fuels, yearsOfProduction } from "@constants";
@@ -15,9 +15,12 @@ export default async function Home() {
   const isDataEmpty = works.length < 1 || !works;
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden text-white ">
       <Hero />
-      <div className="mt-12 padding-x padding-y max-width" id="discover">
+      <div
+        className="mt-12 padding-x padding-y max-width text-white "
+        id="discover"
+      >
         <div className="text-center">
           <h1 className="text-4xl font-extrabold">Schedule with Neatify</h1>
           <br />
@@ -32,12 +35,12 @@ export default async function Home() {
         </div>
         <br />
         <div>
-          <div className="container mx-auto">
+          <div className="mx-auto">
             <div className="flex flex-wrap -mx-2">
               <div className="w-full md:w-1/2 lg:w-1/3 px-2 mb-3">
-                <div className="bg-white p-6 h-full rounded-lg shadow-lg flex flex-col">
+                <div className=" p-6 h-full rounded-lg shadow-lg flex flex-col">
                   <h2 className="text-2xl font-bold mb-2">Neatify</h2>
-                  <p className="text-gray-700">
+                  <p className="">
                     Neatify is a user-friendly app and website that connects
                     customers with trustworthy cleaning service providers,
                     allowing easy scheduling of cleaning services at their
@@ -46,18 +49,18 @@ export default async function Home() {
                 </div>
               </div>
               <div className="w-full md:w-1/2 lg:w-1/3 px-2 mb-3">
-                <div className="bg-white p-6 h-full rounded-lg shadow-lg flex flex-col">
+                <div className=" p-6 h-full rounded-lg shadow-lg flex flex-col">
                   <h2 className="text-2xl font-bold mb-2">Vision</h2>
-                  <p className="text-gray-700">
+                  <p className="">
                     Neatify envisions beautifully maintained homes and spaces,
                     fostering aesthetics, joy, and vibrant communities.
                   </p>
                 </div>
               </div>
               <div className="w-full md:w-1/2 lg:w-1/3 px-2 mb-3">
-                <div className="bg-white p-6 h-full rounded-lg shadow-lg flex flex-col">
+                <div className="p-6 h-full rounded-lg shadow-lg flex flex-col">
                   <h2 className="text-2xl font-bold mb-2">Mission</h2>
-                  <p className="text-gray-700">
+                  <p className="">
                     Neatify revolutionizes cleaning services with a
                     user-friendly app and website, connecting customers to
                     reliable service providers and fostering economic well-being
@@ -75,8 +78,8 @@ export default async function Home() {
         {!isDataEmpty ? (
           <section>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {works.map((work) => (
-                <WorkCard work={work} key={work._id} />
+              {works.map((work: { _id: Key | null | undefined }) => (
+                <WorkCard key={work._id} />
               ))}
             </div>
             {/* 
@@ -87,7 +90,7 @@ export default async function Home() {
           </section>
         ) : (
           <div className="home__error-container">
-            <h2 className="text-black text-xl font-bold">Oops, no results</h2>
+            <h2 className="text-xl font-bold">Oops, no results</h2>
           </div>
         )}
       </div>
