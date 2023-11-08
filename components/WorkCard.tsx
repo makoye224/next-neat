@@ -1,34 +1,44 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import { client } from "../sanity/lib/client";
+import imageUrlBuilder from "@sanity/image-url";
+import { TbCopy } from "react-icons/tb";
 
-// Define TypeScript types for the props
-interface WorkCardProps {
-  work: string;
-  comments: string;
-  user: string;
-  imageSrc: string; // New prop for the image source
+// Get a pre-configured url-builder from your sanity client
+const builder = imageUrlBuilder(client);
+
+// Then we like to make a simple function like this that gives the
+// builder an image and returns the builder for you to specify additional
+// parameters:
+function urlFor(source) {
+  return builder.image(source);
 }
 
-const WorkCard: React.FC<WorkCardProps> = ({
-  work
-}) => {
+const WorkCard = ({ work }) => {
+  const formattedDate = new Date(work.publishedAt).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
-    <div className="p-4 border rounded-lg shadow-md space-y-2">
-      <div className="relative w-full h-52">
-        {" "}
-        {/* Adjust the height as needed */}
-        <Image
-          src="/w1.jpg"
-          alt="Work Image"
-          layout="fill"
-          className="rounded-sm shadow-sm object-cover"
+    <div className="p-5 text-center">
+      <div className="rounded-lg p-4 flex flex-col items-center">
+        <img
+          src={
+            work.mainImage
+              ? urlFor(work.mainImage).width(200).height(250).url()
+              : "/mylogo.png"
+          }
+          alt={work.title}
+          className="height-250 w-full object-cover mb-4"
         />
+        <h3 className="text-xl font-semibold mb-2">{work.title}</h3>
+        <p className="text-lg">{formattedDate}</p>
+        <div className="flex items-center mt-2">
+          <p className="text-gray-600 mr-2">Author: {}</p>
+        </div>
       </div>
-      <h3 className="text-xl font-semibold">Cleaning Work</h3>
-      <p>{work.wor}</p>
-      <h4 className="text-lg font-semibold">Comments</h4>
-      <p>{comments}</p>
-      <p className="text-gray-500">User: {user}</p>
     </div>
   );
 };

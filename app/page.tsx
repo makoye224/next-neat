@@ -11,34 +11,8 @@ import Reviews from "@components/Reviews";
 import { client } from "../sanity/lib/client";
 
 export default async function Home() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const data = await client.fetch(
-          `*[_type == "post"]{
-            title,
-            slug,
-            mainImage{
-              asset->{
-                _id,
-                url,
-              }
-            }
-          }`
-        );
-        setPosts(data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    fetchData();
-  }, []);
-
-  console.log(posts);
-  const isDataEmpty = posts.length < 1 || !posts;
+  const works = await client.fetch('*[_type == "work"]');
+  const isDataEmpty = works.length < 1 || !works;
 
   return (
     <main className="overflow-hidden">
@@ -100,15 +74,15 @@ export default async function Home() {
         </div>
         {!isDataEmpty ? (
           <section>
-            <div className="home__cars-wrapper">
-              {posts.map((work) => (
-                <p key={work}>hello world</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {works.map((work) => (
+                <WorkCard work={work} key={work._id} />
               ))}
             </div>
             {/* 
             <ShowMore
               pageNumber={(searchParams.limit || 10) / 10}
-              isNext={(searchParams.limit || 10) > posts.length}
+              isNext={(searchParams.limit || 10) > work.length}
             /> */}
           </section>
         ) : (
