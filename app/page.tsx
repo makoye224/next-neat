@@ -1,4 +1,3 @@
-"use client";
 import { Key, useEffect, useState } from "react";
 import { fetchCars } from "@utils";
 import { HomeProps } from "@types";
