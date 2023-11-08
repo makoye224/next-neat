@@ -32,10 +32,10 @@ const Hero = () => {
       <div className="hero__image-container">
         <div className="hero__image">
           <Image
-            src="/hel-bn.png"
+            src="/bannerr.png"
             alt="hero"
             fill
-            className="object-contain shadow-black "
+            className="object-contain"
           />
         </div>
 
