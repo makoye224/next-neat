@@ -6,11 +6,14 @@ import "react-time-picker/dist/TimePicker.css";
 import { client } from "../sanity/lib/client";
 
 const BookAppointment = () => {
-  const [selectedService, setSelectedService] = useState("Residential Spaces");
+  const [selectedService, setSelectedService] = useState("");
   const [customService, setCustomService] = useState("");
   const [selectedDate, setSelectedDate] = useState("12:00");
   const [selectedTime, setSelectedTime] = useState("");
   const [comments, setComments] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [name, setName] = useState("");
 
   const handleServiceChange = (e: { target: { value: any } }) => {
     const selectedValue = e.target.value;
@@ -40,10 +43,13 @@ const BookAppointment = () => {
         _type: "appointment",
         title: customService || selectedService,
         service: customService || selectedService,
+        email: email,
+        phone: phoneNumber,
         date: new Date(selectedDate),
         time: selectedTime,
         submittedAt: new Date(),
         comments: comments,
+        name: name,
       };
 
       // Send the FormData to your server or Sanity.io for upload
@@ -53,10 +59,14 @@ const BookAppointment = () => {
       console.log(response);
 
       // Reset the form fields and selected file
-      setSelectedService("service1");
+      setSelectedService("");
       setCustomService("");
       setSelectedDate("");
-      setSelectedTime("12:00");
+      setSelectedTime("");
+      setName("");
+      setComments("");
+      setPhoneNumber("");
+      setEmail("");
     } catch (error) {
       console.error("Error creating document:", error);
       // Inform the user about the error
@@ -80,6 +90,7 @@ const BookAppointment = () => {
             className="w-full px-4 py-2 border rounded-lg"
             value={selectedService}
             onChange={handleServiceChange}
+            required
           >
             <option value="Residential Spaces">Residential Spaces</option>
             <option value="Swimming Pools">Swimming Pools</option>
@@ -106,12 +117,13 @@ const BookAppointment = () => {
               className="w-full px-4 py-2 border rounded-lg"
               value={customService}
               onChange={(e) => setCustomService(e.target.value)}
+              required
             />
           </div>
         )}
         <div className="mb-4">
           <label htmlFor="date" className="block text-gray-600 font-medium">
-            Date:
+            Please specify the desired service date:
           </label>
           <input
             type="date"
@@ -119,11 +131,12 @@ const BookAppointment = () => {
             className="w-full px-4 py-2 border rounded-lg"
             value={selectedDate}
             onChange={(e) => setSelectedDate(e.target.value)}
+            required
           />
         </div>
         <div className="mb-4">
           <label htmlFor="time" className="block text-gray-600 font-medium">
-            Time:
+            Please specify the desired service time:
           </label>
           <input
             type="time"
@@ -131,6 +144,45 @@ const BookAppointment = () => {
             value={selectedTime}
             className="w-full px-4 py-2 border  rounded-lg"
             onChange={(e) => setSelectedTime(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="date" className="block text-gray-600 font-medium">
+            Name:
+          </label>
+          <input
+            type="text"
+            id="name"
+            className="w-full px-4 py-2 border rounded-lg"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="date" className="block text-gray-600 font-medium">
+            Email:
+          </label>
+          <input
+            type="email"
+            id="email"
+            className="w-full px-4 py-2 border rounded-lg"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="date" className="block text-gray-600 font-medium">
+            Phone Number:
+          </label>
+          <input
+            type="number"
+            id="phone-number"
+            className="w-full px-4 py-2 border rounded-lg"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            required
           />
         </div>
         <div className="mb-4">

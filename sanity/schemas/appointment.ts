@@ -16,6 +16,21 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+    }),
+    defineField({
+      name: 'email',
+      title: 'Email Address',
+      type: 'string',
+    }),
+    defineField({
+      name: 'phone',
+      title: 'Phone Number',
+      type: 'string',
+    }),
+    defineField({
       name: 'date',
       title: 'date',
       type: 'datetime',
