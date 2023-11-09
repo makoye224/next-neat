@@ -155,8 +155,8 @@ const BookAppointment = () => {
             type="text"
             id="name"
             className="w-full px-4 py-2 border rounded-lg"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
