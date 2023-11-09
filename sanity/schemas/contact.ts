@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'appointment',
-  title: 'appointment',
+  name: 'contact',
+  title: 'contact',
   type: 'document',
   fields: [
     defineField({
@@ -11,14 +11,19 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'service',
-      title: 'service',
+      name: 'fullname',
+      title: 'Full Name',
       type: 'string',
     }),
     defineField({
-      name: 'date',
-      title: 'date',
-      type: 'datetime',
+      name: 'email',
+      title: 'Email Address',
+      type: 'string',
+    }),
+    defineField({
+      name: 'phone',
+      title: 'Phone Number',
+      type: 'string',
     }),
     defineField({
       name: 'submittedAt',
@@ -26,13 +31,8 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
-      name: 'time',
-      title: 'time',
-      type: 'string',
-    }),
-    defineField({
-      name: 'comments',
-      title: 'comments',
+      name: 'message',
+      title: 'message',
       type: 'text',
     }),
   ],

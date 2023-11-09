@@ -22,8 +22,12 @@ export default defineType({
     defineField({
       name: 'customer',
       title: 'customer',
-      type: 'reference',
-      to: {type: 'customers'},
+      type: 'string',
+    }),
+    defineField({
+      name: 'location',
+      title: 'location',
+      type: 'string',
     }),
     defineField({
       name: 'mainImage',
@@ -41,32 +45,21 @@ export default defineType({
       ]
     }),
     defineField({
-      name: 'appointment',
-      title: 'appointment',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'appointment'}}],
-    }),
-    defineField({
-      name: 'publishedAt',
-      title: 'Published at',
+      name: 'submittedAt',
+      title: 'Date Submitted',
       type: 'datetime',
     }),
     defineField({
-      name: 'comments',
-      title: 'comments',
-      type: 'blockContent',
+      name: 'review',
+      title: 'review',
+      type: 'text',
     }),
   ],
 
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
       media: 'mainImage',
-    },
-    prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
-    },
+    }
   },
 })

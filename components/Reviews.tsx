@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import { client } from "../sanity/lib/client";
 
 interface FormData {
   fullName: string;
@@ -22,11 +23,10 @@ const Reviews: React.FC = () => {
     const { name, value, type } = e.target;
 
     if (type === "file") {
-      // Handle file input separately
       const file = (e.target as HTMLInputElement).files?.[0];
       setFormData({
         ...formData,
-        [name]: file,
+        [name]: file, // Set the selected file in the 'media' field of your form data
       });
     } else {
       setFormData({
@@ -36,17 +36,39 @@ const Reviews: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // You can handle the form submission logic here, e.g., sending the data to an API
-    console.log(formData);
-    // Clear the form fields after submission
+    try {
+      // Create the Sanity document with the uploaded image asset ID
+      const sanityDocument = {
+        _type: "work",
+        title: formData.fullName,
+        customer: formData.fullName,
+        location: formData.location,
+        review: formData.comment,
+        submittedAt: new Date(),
+      };
+      const response = await client.create(sanityDocument);
+      console.log(response);
+    } catch (error) {
+      console.error("Error creating document:", error);
+      // Inform the user about the error
+      alert("An error occurred while submitting the review.");
+    }
+
+    // Clear the form fields
     setFormData({
       fullName: "",
       media: null,
       location: "",
       comment: "",
     });
+
+    // Clear the file input field
+    const fileInput = document.getElementById("media") as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = "";
+    }
   };
 
   return (

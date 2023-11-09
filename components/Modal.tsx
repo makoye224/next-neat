@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import { client } from "../sanity/lib/client";
 
 interface FormData {
   fullName: string;
@@ -33,11 +34,34 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // You can handle the form submission logic here, e.g., sending the data to an API
-    console.log(formData);
-    // Close the modal after form submission
+    try {
+      // Create the Sanity document with the uploaded image asset ID
+      const sanityDocument = {
+        _type: "contact",
+        title: formData.fullName,
+        fullname: formData.fullName,
+        email: formData.email,
+        phone: formData.phoneNumber,
+        message: formData.message,
+        submittedAt: new Date(),
+      };
+      const response = await client.create(sanityDocument);
+      console.log(response);
+    } catch (error) {
+      console.error("Error creating document:", error);
+      // Inform the user about the error
+      alert("An error occurred while submitting the review.");
+    }
+
+    // Clear the form fields
+    setFormData({
+      fullName: "",
+      message: "",
+      phoneNumber: "",
+      email: "",
+    });
     onClose();
   };
 
