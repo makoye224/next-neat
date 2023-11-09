@@ -140,7 +140,7 @@ const Reviews: React.FC = () => {
           <div className="mt-4 flex justify-between">
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="bg-white text-black px-4 py-2 hover:text-white rounded-full hover:bg-red-600"
             >
               Submit Review
             </button>

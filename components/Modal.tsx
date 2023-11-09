@@ -136,12 +136,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           <div className="mt-4 flex justify-between">
             <button
               type="submit"
-              className="bg-neat-color text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="bg-neat-color text-white px-4 py-2 rounded-full hover:bg-green-600 hover:bg-blue-600"
             >
               Submit
             </button>
             <button
-              className="bg-red-800 text-white px-4 py-2 rounded hover:bg-red-600"
+              className="bg-black text-white px-4 py-2 rounded-full hover:bg-red-600"
               onClick={onClose}
             >
               Close

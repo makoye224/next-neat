@@ -148,7 +148,7 @@ const BookAppointment = () => {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-neat-color text-white py-2 px-4 rounded-full hover:bg-blue-700"
+            className="bg-neat-color text-white py-2 px-4 hover:bg-red-600 rounded-full hover:bg-blue-700"
           >
             Book Now
           </button>
