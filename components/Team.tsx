@@ -18,16 +18,23 @@ const Team: React.FC = () => {
     {
       id: 1,
       name: "Adam Nzinza",
-      position: "Co-Founder",
+      position: "Creative & Marketing Strategist",
       email: "adamnzinza@gmail.com",
       profilePicture: "/nzinza.jpeg",
     },
     {
       id: 2,
       name: "Emmanuel Makoye",
-      position: "Co-Founder",
+      position: "Software Engineer and Resource Architect",
       email: "elm102@case.edu",
       profilePicture: "/makoye.jpeg",
+    },
+    {
+      id: 3,
+      name: "Rashidi Shabani",
+      position: "Chief Operating Officer",
+      email: "rashidishabani@gmail.com",
+      profilePicture: "/big.png",
     },
   ];
 
@@ -46,7 +53,7 @@ const Team: React.FC = () => {
     <div className="p-5 text-center">
       <h2 className="text-3xl font-semibold mb-4">Our Team</h2>
       <br />
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {teamMembers.map((member) => (
           <li
             key={member.id}
