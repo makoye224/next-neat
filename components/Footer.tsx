@@ -9,7 +9,7 @@ const Footer = () => (
       <div className="flex flex-col justify-start items-start gap-6">
         <Image
           src="/ntfy.png"
-          alt="logo"
+          alt="neatify logo"
           width={118}
           height={18}
           className="object-contain"
