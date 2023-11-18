@@ -15,7 +15,7 @@ const ShowMore = ({ pageNumber, isNext }: ShowMoreProps) => {
 
     // Update the "limit" search parameter in the URL with the new value
     const newPathname = updateSearchParams("limit", `${newLimit}`);
-    
+
     router.push(newPathname);
   };
 
@@ -23,6 +23,8 @@ const ShowMore = ({ pageNumber, isNext }: ShowMoreProps) => {
     <div className="w-full flex-center gap-5 mt-10">
       {!isNext && (
         <CustomButton
+          bg="white"
+          col="black"
           btnType="button"
           title="Show More"
           containerStyles="bg-primary-blue rounded-full text-white"
