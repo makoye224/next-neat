@@ -11,16 +11,18 @@ const Button = ({
   textStyles,
   title,
   rightIcon,
+  bg,
+  col,
   handleClick,
 }: CustomButtonProps) => (
   <button
     disabled={isDisabled}
     type={btnType || "button"}
-    className={`custom-btn hover:bg-red-700 bg-white ${containerStyles}`}
+    className={`custom-btn hover:bg-red-700 bg-${bg} ${containerStyles}`}
     onClick={handleClick}
   >
     <span
-      className={`flex-1 text-black  hover:text-white font-extrabold ${textStyles}`}
+      className={`flex-1 text-${col} hover:text-white font-extrabold ${textStyles}`}
     >
       {title}
     </span>

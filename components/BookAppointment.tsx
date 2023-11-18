@@ -5,7 +5,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-time-picker/dist/TimePicker.css";
 import { client } from "../sanity/lib/client";
 
-const BookAppointment = () => {
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const BookAppointment: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+  if (!isOpen) return null;
+
   const [selectedService, setSelectedService] = useState("");
   const [customService, setCustomService] = useState("");
   const [selectedDate, setSelectedDate] = useState("12:00");
@@ -67,6 +74,7 @@ const BookAppointment = () => {
       setComments("");
       setPhoneNumber("");
       setEmail("");
+      onClose();
     } catch (error) {
       console.error("Error creating document:", error);
       // Inform the user about the error
@@ -75,7 +83,10 @@ const BookAppointment = () => {
   };
 
   return (
-    <div className="w-full max-w-md p-4 mx-auto bg-white text-black shadow-lg rounded-lg">
+    <div
+      id="discover"
+      className="w-full max-w-md p-4 mx-auto bg-white text-black shadow-lg rounded-lg"
+    >
       <h2 className="text-2xl font-bold mb-4">Book an Appointment</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

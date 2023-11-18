@@ -1,10 +1,21 @@
 "use client";
 
 import Image from "next/image";
-
 import { CustomButton } from "@components";
+import { useState } from "react";
+import BookAppointment from "./BookAppointment";
 
-const Hero = () => {
+const Hero: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const handleScroll = () => {
     const nextSection = document.getElementById("discover");
 
@@ -12,6 +23,8 @@ const Hero = () => {
       nextSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const [isPopoverVisible, setIsPopoverVisible] = useState(false);
 
   return (
     <div className="hero">
@@ -22,12 +35,20 @@ const Hero = () => {
           Book a cleaning appointment for your house, garden, swimming pool,
           office, and more, starting from just Tshs. 50k.
         </p>
-
-        <CustomButton
-          title="Book an Appointment"
-          containerStyles="text-white rounded-full mt-10"
-          handleClick={handleScroll}
-        />
+        <div id="discover">
+          <CustomButton
+            bg="white"
+            col="black"
+            title={!isModalOpen ? "Book an Appointment" : "Close Modal"}
+            containerStyles="text-white rounded-full mt-10"
+            handleClick={() => {
+              setIsModalOpen(!isModalOpen);
+            }}
+          />
+        </div>
+        <div className="text-center">
+          <BookAppointment isOpen={isModalOpen} onClose={closeModal} />
+        </div>
       </div>
       <div className="hero__image-container">
         <div className="hero__image">

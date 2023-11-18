@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { client } from "../sanity/lib/client";
+import Link from "next/link";
 
 interface FormData {
   fullName: string;
@@ -69,6 +70,14 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="p-4 w-96 shadow-md rounded-lg bg-white">
         <h2 className="font-extrabold text-black text-center">Contact Us</h2>
+        <div className="mt-4 flex justify-between text-sm">
+          <a href="tel:+255742633360" className="text-black">
+            Phone: +255 742 633360
+          </a>
+          <a href="mailto:neatifytz@gmail.com" className="text-black">
+            Email: neatifytz@gmail.com
+          </a>
+        </div>
 
         <form onSubmit={handleSubmit}>
           <div className="mt-4">
