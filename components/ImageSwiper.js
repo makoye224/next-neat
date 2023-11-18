@@ -15,13 +15,15 @@ import { EffectCoverflow, Pagination, Autoplay, } from 'swiper/modules';
 export default function ImageSwiper() {
   return (
     <>
+        <h1 className="text-4xl font-extrabold">Excellence is the fabric of our work</h1>
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
+        loop={true}
         slidesPerView={'auto'}
         autoplay={{
-          delay: 4000,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         coverflowEffect={{

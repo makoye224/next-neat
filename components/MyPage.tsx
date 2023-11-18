@@ -59,9 +59,9 @@ const MyPage = () => {
 
   return (
     <>
-      <ImageSwiper />
       {/* Content */}
       <div className="mt-12 padding-x padding-y max-width text-white">
+        <ImageSwiper />
         <br />
         <div>
           <div className="mx-auto">
@@ -101,7 +101,7 @@ const MyPage = () => {
           </div>
         </div>
         <br />
-        <div className="text-center">
+        <div>
           <h1 className="text-4xl font-extrabold">Our actions speak for us</h1>
         </div>
         {!isDataEmpty ? (
@@ -126,6 +126,8 @@ const MyPage = () => {
 
       {/* Reviews Section */}
       <div className="mt-12 padding-x padding-y max-width text-white">
+        <h1 className="text-4xl font-extrabold">How did we do?</h1>
+        <br />
         <div id="review">
           <CustomButton
             bg="white"
@@ -148,10 +150,6 @@ const MyPage = () => {
             </div>
           )}
         </div>
-      </div>
-      <div className="text-center">
-        <h1 className="text-4xl font-extrabold">How did we do?</h1>
-        <br />
       </div>
     </>
   );
