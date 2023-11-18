@@ -8,11 +8,17 @@ import Reviews from "./Reviews";
 import { CustomButton } from "@components";
 import Slideshow from "./slideshow";
 import ImageSwiper from "./ImageSwiper";
+import BeforeAfter from "./BeforeAfter";
 
 const MyPage = () => {
   const [works, setWorks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>(null);
+  const [showAll, setShowAll] = useState(false);
+  const ba = [1, 2, 3, 4, 5, 6];
+  const initialDisplayCount = 3;
+
+  const visibleItems = showAll ? ba : ba.slice(0, initialDisplayCount);
 
   const [isPopoverVisible, setIsPopoverVisible] = useState(false);
 
@@ -103,6 +109,13 @@ const MyPage = () => {
         <br />
         <div>
           <h1 className="text-4xl font-extrabold">Our actions speak for us</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
+            {ba.map((item, index) => (
+              <div key={index} className="p-4">
+                <BeforeAfter />
+              </div>
+            ))}
+          </div>
         </div>
         {!isDataEmpty ? (
           <section>
