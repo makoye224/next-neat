@@ -131,7 +131,7 @@ const MyPage = () => {
           <CustomButton
             bg="white"
             col="black"
-            title="Review Our Work"
+            title={isPopoverVisible ? "Close Review" : "Review Our Work"}
             containerStyles="text-white rounded-full"
             handleClick={togglePopover}
           />

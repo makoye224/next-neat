@@ -35,14 +35,16 @@ const Hero: React.FC = () => {
           Book a cleaning appointment for your house, garden, swimming pool,
           office, and more, starting from just Tshs. 50k.
         </p>
-        <div id="discover">
+        <div id="discover"></div>
+        <div>
           <CustomButton
             bg="white"
             col="black"
-            title={!isModalOpen ? "Book an Appointment" : "Close Modal"}
+            title={!isModalOpen ? "Book an Appointment" : "Close Appointment"}
             containerStyles="text-white rounded-full mt-10"
             handleClick={() => {
               setIsModalOpen(!isModalOpen);
+              handleScroll();
             }}
           />
         </div>
