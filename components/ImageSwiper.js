@@ -1,65 +1,68 @@
-'use client'
+import React, { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { useState } from 'react'
-import Image from 'next/image'
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
 
-import { Swiper, SwiperSlide } from 'swiper/react'
+import './swiper.css'
 
-import { images } from '@/lib/images'
-import { cn } from '@/lib/utils'
+// import required modules
+import { EffectCoverflow, Pagination, Autoplay, } from 'swiper/modules';
 
-import 'swiper/css'
-
-export default function Page() {
-  const [swiper, setSwiper] = useState(null)
-  const [showNavigation, setShowNavigation] = useState(true)
-
+export default function ImageSwiper() {
   return (
-    <section className='relative min-h-screen mt-300 text-white lg:ml-20'>
-      <div className='container'>
-
-        {/* navigation */}
-        <nav className={cn('my-10', !showNavigation && 'hidden')}>
-          <ul className='flex gap-4'>
-            {images.map((image, index) => (
-              <li key={index}>
-                <button
-                  onClick={() => {
-                    swiper.slideTo(index)
-                    // setShowNavigation(false)
-                  }}
-                  className='relative block  overflow-hidden rounded-lg'
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    className='block h-full w-full object-cover'
-                  />
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Main slides */}
-        <Swiper
-          spaceBetween={10}
-          onSwiper={setSwiper}
-          className='lg:h-96 w-full rounded-lg'
-        >
-          {images.map((image, index) => (
-            <SwiperSlide key={index}>
-              <div className='flex h-full w-full items-center justify-center'>
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  className='block h-full w-full object-cover'
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </section>
-  )
+    <>
+      <Swiper
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={'auto'}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        pagination={true}
+        modules={[EffectCoverflow, Pagination, Autoplay]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+        </SwiperSlide>
+      </Swiper>
+    </>
+  );
 }
