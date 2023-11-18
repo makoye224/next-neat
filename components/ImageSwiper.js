@@ -1,13 +1,43 @@
 import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import styled from 'styled-components';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
+
 import './swiper.css'
+
+const SwiperWrapper = styled.div`
+
+
+body {
+  position: relative;
+  height: 100%;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+`
 
 // import required modules
 import { EffectCoverflow, Pagination, Autoplay, } from 'swiper/modules';
@@ -15,6 +45,7 @@ import { EffectCoverflow, Pagination, Autoplay, } from 'swiper/modules';
 export default function ImageSwiper() {
   return (
     <>
+    <SwiperWrapper>
         <h1 className="text-4xl font-extrabold">Excellence is the fabric of our work</h1>
       <Swiper
         effect={'coverflow'}
@@ -65,6 +96,7 @@ export default function ImageSwiper() {
           <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
         </SwiperSlide>
       </Swiper>
+      </SwiperWrapper>
     </>
   );
 }
