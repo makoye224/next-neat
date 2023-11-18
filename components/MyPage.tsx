@@ -114,7 +114,7 @@ const MyPage = () => {
           </section>
         ) : (
           <div className="home__error-container">
-            <h2 className="text-xl font-bold">No Reviews yet</h2>
+            {/* <h2 className="text-xl font-bold">No Reviews yet</h2> */}
           </div>
         )}
       </div>
