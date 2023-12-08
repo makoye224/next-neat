@@ -110,11 +110,7 @@ const MyPage = () => {
         <div>
           <h1 className="text-4xl font-extrabold">Our actions speak for us</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
-{/*             {ba.map((item, index) => (
-              <div key={index} className="p-4">
-                <BeforeAfter />
-              </div>
-            ))} */}
+
           </div>
         </div>
         {!isDataEmpty ? (
